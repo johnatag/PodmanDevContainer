@@ -1,3 +1,1 @@
 FROM python:slim-bullseye
-RUN useradd -ms /bin/bash vscode
-USER vscode

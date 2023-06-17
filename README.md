@@ -1,5 +1,23 @@
-# Podman DevContainer MacOS
-A template for devcontainers with podman on MacOS
+# Features
+
+The goal of this project is to provide a standard template for developping fullstack apps/microservices with observability in mind.
+This template will provide:
+- An already configured Observability platform using the OTEL Collector and the PromStack.
+- A devcontainer configuration that should work with podman or docker out of the box
+    - List of containers:
+        - Python microservice (devcontainer)
+        - PostgresSQL
+        - Prometheus for metrics
+        - Grafana for visualization
+        - Jaegar for traces
+        - Loki for logs
+        - OTEL Collector
+- An instrumented python microservice using the OpenTelemetry SDK/API (WIP)
+- Swagger and OpenAPI 3.1 integration for documentation and testing (WIP)
+- CI/CD configurations (WIP)
+- Frontend React client (WIP)
+
+**Important:** All of these configurations are for a local/dev environment. We would still need to properly configure an OTEL Collector/backends for production.
 
 # Why use Podman instead of Docker
 For security reasons, it is generally a good idea to do as much as possible on a standard user (non-administrator) without root access. Unfortunately, Docker requires root access in order to install/run properly on Mac OS which greatly increases the attack surface. Podman is a great alternative to docker since it's daemon-less, and it can operate without root by default.
@@ -70,7 +88,7 @@ On a MacOS machine, you would give it the value: unix:///Users/$USER/.local/shar
     - Once the extension is done setting up your container, pull up the terminal and you can interact with the container! Feel free to create files and make changes to them.
 - *IMPORTANT*: If instead of a base image, we want to use a Dockerfile/Containerfile, we need to create and select the user in the Dockerfile/Containerfile
     ```JSON
-    devcontainer.json
+    devcontainer.json that works with podman on Mac OS
     {
         "name": "Alpine",
         "build": {
@@ -95,3 +113,4 @@ On a MacOS machine, you would give it the value: unix:///Users/$USER/.local/shar
     RUN useradd -ms /bin/bash vscode
     USER vscode
     ```
+- In our case, we are extending the usage to podman-compose
