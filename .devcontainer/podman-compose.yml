@@ -3,6 +3,8 @@ version: "3"
 services:
   mongodb_container:
     image: mongo:latest
+    container_name: mongodb
+    hostname: mongodb
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
@@ -13,7 +15,7 @@ services:
   
   jaeger-all-in-one:
     image: ${JAEGER_IMG}
-    container_name: jaeger-all-in-one
+    container_name: jaeger
     hostname: jaeger
     restart: always
     environment:

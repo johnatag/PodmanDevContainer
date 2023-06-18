@@ -4,20 +4,18 @@ datasources:
 - name: Prometheus
   type: prometheus
   access: proxy
-  orgId: 1
   url: http://prometheus:9090
-  basicAuth: false
-  isDefault: false
-  version: 1
-  editable: false
-- name: Jaeger
-  type: jaeger
-  access: proxy
-  orgId: 1
-  url: http://jaeger:16686
   basicAuth: false
   isDefault: true
   version: 1
-  editable: false
+  editable: true
+- name: Jaeger
+  type: jaeger
+  access: proxy
+  url: http://jaeger:16686
+  basicAuth: false
+  isDefault: false
+  version: 1
+  editable: true
   apiVersion: 1
-  uid: jaeger
+  uid: EbPG8fYoz
