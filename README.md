@@ -14,16 +14,15 @@ This template will provide:
 - A devcontainer configuration that should work with podman or docker out of the box
     - List of containers:
         - Python microservice (devcontainer)
-        - PostgresSQL
+        - MongoDB
         - Prometheus for metrics
-        - Grafana for visualization (bugged as of right now)
+        - Grafana for visualization
         - Jaeger for traces
         - Loki for logs (WIP)
         - Alertmanager for alerting (WIP)
         - Prometheus Node Exporter for CPU and Memory metrics (WIP)
         - OTEL Collector
-- An instrumented python microservice using the OpenTelemetry SDK/API (WIP)
-- Swagger and OpenAPI 3.1 integration for documentation and testing (WIP)
+- An instrumented python microservice using the OpenTelemetry SDK/API
 - CI/CD configurations (WIP)
 - Frontend React client (WIP)
 
