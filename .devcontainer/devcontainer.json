@@ -11,6 +11,6 @@
 			]
 		}
 	},
-	"postCreateCommand": "pip install -r requirements.txt && opentelemetry-instrument --traces_exporter console,otlp --metrics_exporter console,otlp uvicorn main:app --reload"
+	"postCreateCommand": "pip install -r requirements.txt"
 }
   

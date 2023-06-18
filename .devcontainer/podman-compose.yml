@@ -12,19 +12,7 @@ services:
       - 27017:27017
     volumes:
       - mongodb_data_container:/data/db
-  
-  jaeger-all-in-one:
-    image: ${JAEGER_IMG}
-    container_name: jaeger
-    hostname: jaeger
-    restart: always
-    environment:
-      - COLLECTOR_OTLP_ENABLED=true
-    ports:
-      - "16686:16686"
-      - "4317:4317"
-      - "4318:4318"
-  
+
   prometheus:
     image: ${PROMETHEUS_IMG}
     container_name: prometheus
@@ -37,6 +25,27 @@ services:
       - ./o11y-backend/prometheus.yaml:/etc/prometheus.yaml
     ports:
       - "9090:9090"
+
+  jaeger-all-in-one:
+    image: ${JAEGER_IMG}
+    container_name: jaeger
+    hostname: jaeger
+    restart: always
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+      - METRICS_STORAGE_TYPE=prometheus
+      - PROMETHEUS_SERVER_URL=http://prometheus:9090
+    ports:
+      - 6831:6831/udp
+      - 6832:6832/udp
+      - 5778:5778
+      - 16686:16686
+      - 4317:4317
+      - 4318:4318
+      - 14250:14250
+      - 14268:14268
+      - 14269:14269
+      - 9411:9411
   
   grafana:
     image: ${GRAFANA_IMG}
@@ -66,9 +75,9 @@ services:
       - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
     ports:
       #- 1888:1888 # pprof extension
-      #- 8888:8888 # Prometheus metrics exposed by the collector
+      - 8888:8888 # Prometheus metrics exposed by the collector
       - 8889:8889 # Prometheus exporter metrics
-      #- 13133:13133 # health_check extension
+      - 13133:13133 # health_check extension
       - 5317:5317 # OTLP gRPC receiver (had to change from 4317 to 5317 in order to avoid conflict with jaeger)
       #- 4318:4318 # OTLP http receiver
       #- 55679:55679 # zpages extension

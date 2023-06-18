@@ -1,3 +1,11 @@
+# Instructions to run the project
+
+```bash
+# After opening the project in a devcontainer, it will install all the dependencies, then run this command:
+
+opentelemetry-instrument --traces_exporter console,otlp --metrics_exporter console,otlp --service_name hello-world-app --exporter_otlp_endpoint http://collector:5317 uvicorn main:app
+```
+
 # Features
 
 The goal of this project is to provide a standard template for developping fullstack apps/microservices with observability in mind.
