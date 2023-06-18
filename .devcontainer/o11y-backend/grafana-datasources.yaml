@@ -10,14 +10,14 @@ datasources:
   isDefault: false
   version: 1
   editable: false
-- name: Jaegar
-  type: jaegar
+- name: Jaeger
+  type: jaeger
   access: proxy
   orgId: 1
-  url: http://jaegar:16686
+  url: http://jaeger:16686
   basicAuth: false
   isDefault: true
   version: 1
   editable: false
   apiVersion: 1
-  uid: jaegar
+  uid: jaeger

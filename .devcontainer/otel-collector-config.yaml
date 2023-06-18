@@ -13,8 +13,8 @@ exporters:
   prometheus:
     endpoint: collector:8889
     namespace: default
-  otlp:
-    endpoint: jaegar:4317
+  jaeger:
+    endpoint: jaeger:4317
     tls:
       insecure: true
 
@@ -27,7 +27,7 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [otlp]
+      exporters: [jaeger]
   telemetry:
     logs:
       level: debug

@@ -8,9 +8,11 @@ This template will provide:
         - Python microservice (devcontainer)
         - PostgresSQL
         - Prometheus for metrics
-        - Grafana for visualization
-        - Jaegar for traces
-        - Loki for logs
+        - Grafana for visualization (bugged as of right now)
+        - Jaeger for traces
+        - Loki for logs (WIP)
+        - Alertmanager for alerting (WIP)
+        - Prometheus Node Exporter for CPU and Memory metrics (WIP)
         - OTEL Collector
 - An instrumented python microservice using the OpenTelemetry SDK/API (WIP)
 - Swagger and OpenAPI 3.1 integration for documentation and testing (WIP)
