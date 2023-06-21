@@ -33,7 +33,7 @@ For security reasons, it is generally a good idea to do as much as possible on a
 
 However, due to it's rootless design, additional configuration is required to make it work with VSCode Devcontainers. Compared to Docker, you will encounter a lot more issues, bugs and broken things. 
 
-\* Rootless Docker: I know that it exists, but I think at this point there's very little advantage using Rootless Docker compared to Podman
+\* Rootless Docker: I know that it exists, but I think at this point there's very little advantage using Rootless Docker over Podman
 
 \* My environment is not the standard recommended one by HomeBrew, so I'm expecting more issues down the line
 

@@ -47,6 +47,20 @@ services:
       - 14269:14269
       - 9411:9411
   
+  # loki:
+  #   image: ${LOKI_IMG}
+  #   container_name: loki
+  #   hostname: loki
+  #   user: root
+  #   ports:
+  #     - "3100:3100"
+  #   entrypoint:
+  #     - "chown"
+  #     - "10001:10001"
+  #     - "/loki"
+  #   volumes:
+  #     - ./loki:/loki
+  
   grafana:
     image: ${GRAFANA_IMG}
     container_name: grafana
@@ -54,6 +68,7 @@ services:
     depends_on:
       - jaeger-all-in-one
       - prometheus
+      # - loki
       - db
     volumes:
       - ./o11y-backend/grafana-bootstrap.ini:/etc/grafana/grafana.ini
