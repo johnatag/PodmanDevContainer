@@ -8,17 +8,14 @@ endpoints = [
     {
         "name": "GetStatus",
         "url": "http://localhost:8000/",
-        "method": "HEAD"
     },
     {
         "name": "AllTasks",
         "url": "http://localhost:8000/tasks",
-        "method": "HEAD"
     },
     {
         "name": "SpecificTask",
         "url": "http://localhost:8000/tasks/{id}",
-        "method": "HEAD"
     }
 ]
 
@@ -34,8 +31,7 @@ def perform_health_check():
             response = None
             try:
                 with tracer.start_as_current_span(endpoint["name"]):
-                    if endpoint["method"] == "HEAD":
-                        response = requests.head(url)
+                    response = requests.head(url)
                     # Process the response
                     if response.status_code == 200:
                         print(f"{endpoint['name']} is available")

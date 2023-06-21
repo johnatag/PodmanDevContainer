@@ -8,7 +8,8 @@
 			"extensions": [
 				"ms-python.python",
 				"ms-azuretools.vscode-docker",
-				"mongodb.mongodb-vscode"
+				"mongodb.mongodb-vscode",
+				"njpwerner.autodocstring"
 			]
 		}
 	},

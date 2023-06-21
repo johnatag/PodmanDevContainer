@@ -3,7 +3,10 @@
 ```bash
 # After opening the project in a devcontainer, it will install all the dependencies, then run this command:
 
-opentelemetry-instrument --traces_exporter console,otlp --metrics_exporter console,otlp --service_name hello-world-app --exporter_otlp_endpoint http://collector:5317 uvicorn main:app
+opentelemetry-instrument --traces_exporter otlp --metrics_exporter otlp --service_name app --exporter_otlp_endpoint http://collector:5317 uvicorn main:app
+
+# For the healthcheck script
+opentelemetry-instrument --traces_exporter otlp --metrics_exporter otlp --service_name healthcheck --exporter_otlp_endpoint http://collector:5317 python healthcheck.py
 ```
 
 # Features
